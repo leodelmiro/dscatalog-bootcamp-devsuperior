@@ -1,6 +1,7 @@
 .pagination-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 35px;
 }
 
@@ -25,14 +26,20 @@
 }
 
 .pagination-previous {
-    color: #E1E1E1;
     transform: rotate(-180deg);
     margin-right: 25px;
-    cursor: pointer;
 }
 
 .pagination-next {
-    color: #407BFF;
     margin-left: 15px;
+}
+
+.page-active {
     cursor: pointer;
+    color: #407BFF;
+}
+
+.page-inactive {
+    color: #E1E1E1;
+    pointer-events: none;
 }
