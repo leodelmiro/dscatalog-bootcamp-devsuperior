@@ -3,6 +3,7 @@ package com.leodelmiro.dscatalog.services;
 import com.leodelmiro.dscatalog.dto.RoleDTO;
 import com.leodelmiro.dscatalog.dto.UserDTO;
 import com.leodelmiro.dscatalog.dto.UserInsertDTO;
+import com.leodelmiro.dscatalog.dto.UserUpdateDTO;
 import com.leodelmiro.dscatalog.entities.Role;
 import com.leodelmiro.dscatalog.entities.User;
 import com.leodelmiro.dscatalog.repositories.RoleRepository;
@@ -56,7 +57,7 @@ public class UserService {
     }
 
     @Transactional
-    public UserDTO update(Long id, UserDTO dto) {
+    public UserDTO update(Long id, UserUpdateDTO dto) {
         try {
             User entity = userRepository.getOne(id);
             copyDtoToEntity(dto, entity);
