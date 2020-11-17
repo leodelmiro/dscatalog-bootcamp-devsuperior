@@ -12,8 +12,6 @@ const Catalog = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [activePage, setActivePage] = useState(0);
 
-    console.log(productsResponse);
-
     useEffect( () => {
         const params = {
             page: activePage,
@@ -48,7 +46,7 @@ const Catalog = () => {
                     activePage={activePage}
                     onChange={page => setActivePage(page)}
                 />
-                )}
+            )}
         </div>
     );
 }
