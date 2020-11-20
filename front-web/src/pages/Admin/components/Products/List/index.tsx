@@ -4,6 +4,7 @@ import { makeRequest } from 'core/utils/request';
 import { useHistory } from 'react-router-dom';
 import Card from '../Card'
 import Pagination from 'core/components/Pagination';
+import CardLoader from '../Loaders/ProductCardLoader';
 
 
 const List = () => {    
@@ -38,10 +39,13 @@ const List = () => {
                 ADICIONAR
             </button>
             <div className="admin-list-container">
-                {productsResponse?.content.map(product => (
-                    <Card product={product} key={product.id}/>
-                ))}
-            
+                {isLoading ? <CardLoader/> :  (
+                    productsResponse?.content.map(product => (
+                        <Card product={product} key={product.id}/>
+                    ))
+                )}
+               
+
             {productsResponse && (
                 <Pagination 
                     totalPages={productsResponse.totalPages}
