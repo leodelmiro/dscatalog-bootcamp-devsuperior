@@ -1,8 +1,6 @@
 package com.leodelmiro.dscatalog.entities;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Positive;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
@@ -24,7 +22,7 @@ public class Product implements Serializable {
     private Double price;
     private String imgUrl;
 
-    @Column (columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant date;
 
     @ManyToMany
@@ -33,14 +31,15 @@ public class Product implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
 
-    public Product(){
+    public Product() {
 
     }
 
-    public Product(Long id, String name, String description, String imgUrl, Instant date) {
+    public Product(Long id, String name, String description, Double price, String imgUrl, Instant date) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.price = price;
         this.imgUrl = imgUrl;
         this.date = date;
     }
