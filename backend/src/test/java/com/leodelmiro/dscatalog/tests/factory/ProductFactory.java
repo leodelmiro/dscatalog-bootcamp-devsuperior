@@ -14,4 +14,8 @@ public class ProductFactory {
     public static ProductDTO createProductDTO() {
         return new ProductDTO(createProduct());
     }
+
+    public static Product createEmptyProduct(){
+        return new Product();
+    }
 }
