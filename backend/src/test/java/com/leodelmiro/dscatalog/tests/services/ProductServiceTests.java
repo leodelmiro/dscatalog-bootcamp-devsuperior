@@ -1,11 +1,14 @@
 package com.leodelmiro.dscatalog.tests.services;
 
 import com.leodelmiro.dscatalog.dto.ProductDTO;
+import com.leodelmiro.dscatalog.entities.Category;
 import com.leodelmiro.dscatalog.entities.Product;
+import com.leodelmiro.dscatalog.repositories.CategoryRepository;
 import com.leodelmiro.dscatalog.repositories.ProductRepository;
 import com.leodelmiro.dscatalog.services.ProductService;
 import com.leodelmiro.dscatalog.services.exceptions.DatabaseException;
 import com.leodelmiro.dscatalog.services.exceptions.ResourceNotFoundException;
+import com.leodelmiro.dscatalog.tests.factory.CategoryFactory;
 import com.leodelmiro.dscatalog.tests.factory.ProductFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,6 +33,10 @@ public class ProductServiceTests {
     @Mock
     private ProductRepository repository;
 
+    @Mock
+    private CategoryRepository categoryRepository;
+
+
     private long existingId;
     private long nonExistingId;
     private long dependentId;
@@ -38,6 +45,7 @@ public class ProductServiceTests {
     private ProductDTO productDTO;
     private PageImpl<Product> page;
     private Page<ProductDTO> pageDTO;
+    private Category category;
 
     @BeforeEach
     void setUp() throws Exception {
@@ -49,6 +57,7 @@ public class ProductServiceTests {
         productDTO = ProductFactory.createProductDTO();
         page = new PageImpl<>(List.of(product));
         pageDTO = page.map(ProductDTO::new);
+        category = CategoryFactory.createCategory();
 
         Mockito.when(repository.find(ArgumentMatchers.any(), ArgumentMatchers.anyString(), ArgumentMatchers.any()))
                 .thenReturn(page);
@@ -57,6 +66,8 @@ public class ProductServiceTests {
 
         Mockito.when(repository.getOne(existingId)).thenReturn(product);
         Mockito.when(repository.getOne(nonExistingId)).thenThrow(EntityNotFoundException.class);
+
+        Mockito.when(categoryRepository.getOne(ArgumentMatchers.any())).thenReturn(category);
 
         Mockito.when(repository.findById(existingId)).thenReturn(Optional.of(product));
         Mockito.when(repository.findById(nonExistingId)).thenReturn((Optional.empty()));
