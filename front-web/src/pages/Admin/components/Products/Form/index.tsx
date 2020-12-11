@@ -84,6 +84,7 @@ const Form = () => {
                                     minLength: {value: 5, message: "O campo deve ter no mínimo 5 caracteres"},
                                     maxLength: {value: 60, message: "O campo deve ter no máximo 60 caracteres"}
                                 })}
+                                data-testid="name"
                             />
 
                             {errors.name && (
@@ -95,6 +96,7 @@ const Form = () => {
                         </div>
 
                         <div className="margin-bottom-30">
+                            <label htmlFor="categories" className="d-none">Categorias</label>
                             <Controller
                                 as={Select}
                                 name="categories"
@@ -106,6 +108,7 @@ const Form = () => {
                                 getOptionValue={(option: Category) => String(option.id)} 
                                 placeholder="Categorias"
                                 classNamePrefix="categories-select"
+                                inputId="categories"
                                 isMulti 
                             />
 
@@ -123,6 +126,7 @@ const Form = () => {
                                 className="form-control input-base"
                                 placeholder="Preço"
                                 ref={register({required: "Campo obrigatório"})}
+                                data-testid="price"
                             />
 
                             {errors.price && (
@@ -139,6 +143,7 @@ const Form = () => {
                                 className="form-control input-base"
                                 placeholder="Imagem do produto"
                                 ref={register({required: "Campo obrigatório"})}
+                                data-testid="imgUrl"
                             />
 
                             {errors.imgUrl && (
@@ -157,6 +162,7 @@ const Form = () => {
                             cols={30} 
                             rows={10}
                             ref={register({required: "Campo obrigatório"})}
+                            data-testid="description"
                         /> 
 
                         {errors.description && (
