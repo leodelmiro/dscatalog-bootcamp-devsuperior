@@ -53,7 +53,7 @@ const NavBar: React.FC = () => {
                     </Touchable>
                     <Touchable 
                         style={nav.option} 
-                        onPress={() => navigate("ADM")}
+                        onPress={() => navigate("Login")}
                     >
                         <Text 
                             style={[
