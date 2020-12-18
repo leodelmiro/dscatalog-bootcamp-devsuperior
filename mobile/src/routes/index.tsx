@@ -25,6 +25,8 @@ const Routes: React.FC = () => {
             <Stack.Screen name="Catalog" component={Catalog}/>
             <Stack.Screen name="ProductDetails" component={ProductDetails}/>
             <Stack.Screen name="Login" component={Login}/>
+
+            <Stack.Screen name="Dashboard" component={Dashboard}/>
         </Stack.Navigator>
     )
 }
