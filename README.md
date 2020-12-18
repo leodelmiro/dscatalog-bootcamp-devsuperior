@@ -10,15 +10,17 @@ Aplicação CRUD de catálogo de produtos, usuários não logados podem ter aces
 [![back-end](https://img.shields.io/badge/back--end-spring-green)](https://github.com/leodelmiro/dscatalog-bootcamp-devsuperior/tree/main/backend)
 [![mobile](https://img.shields.io/badge/mobile-react%20native-lightskyblue)](https://github.com/leodelmiro/dscatalog-bootcamp-devsuperior/tree/main/mobile)
 
+</div>
+
 ## Endpoints Back end
 
-###Category
+### Category
 ![Endpoints Category](https://i.imgur.com/YblcEhV.png)
 
-###Category
+### Product
 ![Endpoints Product](https://i.imgur.com/ZGc70fA.png)
 
-###Category
+### User
 ![Endpoints User](https://i.imgur.com/YPQM0dD.png)
 
 ## Layout web
@@ -146,4 +148,4 @@ yarn start
 Leonardo Delmiro
 
 https://www.linkedin.com/in/leodelmiro
-</div>
+
