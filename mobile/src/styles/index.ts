@@ -1,5 +1,4 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import { color } from 'react-native-reanimated';
 
 const deviceWidth = Dimensions.get('window').width;
 
@@ -314,6 +313,32 @@ const nav = StyleSheet.create({
         justifyContent: "center",
         marginRight: 20
     }
-})
+});
 
-export { colors, theme, text, nav }
+const tabbar = StyleSheet.create({
+    container: {
+        width: deviceWidth,
+        height: 80,
+        backgroundColor: colors.white,
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-around"
+    }, 
+    pill: {
+        padding: 15,
+        backgroundColor: colors.lightGray,
+        borderRadius: 30
+    },
+    pillActive: {
+        backgroundColor: colors.bluePill
+    },
+    pillText: {
+        fontWeight: "bold",
+        color: colors.mediumGray
+    },
+    pillTextActive: {
+        color: colors.primary
+    }
+});
+
+export { colors, theme, text, nav, tabbar }
