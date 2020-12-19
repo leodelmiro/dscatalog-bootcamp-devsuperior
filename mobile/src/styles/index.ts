@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
+import { color } from 'react-native-reanimated';
 
 const deviceWidth = Dimensions.get('window').width;
 
@@ -78,6 +79,21 @@ const text = StyleSheet.create({
     }, 
     logoutText: {
         color: colors.white
+    },
+    addButtonText: {
+        color: colors.white,
+        textTransform: "uppercase",
+        fontWeight: "bold"
+    },
+    deleteText: {
+        textTransform: "uppercase",
+        fontWeight: "bold",
+        color: colors.red
+    },
+    editText: {
+        textTransform: "uppercase",
+        fontWeight: "bold",
+        color: colors.mediumGray
     }
 });
 
@@ -164,6 +180,31 @@ const theme = StyleSheet.create({
         width: 140,
         height: 140,
         margin: 16
+    },
+    buttonContainer: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-around"
+    },
+    deleteBtn: {
+        width: "48%",
+        height: 40,
+        borderWidth: 1,
+        borderRadius: 10,
+        borderColor: colors.red,
+        marginVertical: 10,
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    editBtn: {
+        width: "48%",
+        height: 40,
+        borderWidth: 1,
+        borderRadius: 10,
+        borderColor: colors.mediumGray,
+        marginVertical: 10,
+        alignItems: "center",
+        justifyContent: "center"
     },
 
     //Search input
@@ -341,4 +382,20 @@ const tabbar = StyleSheet.create({
     }
 });
 
-export { colors, theme, text, nav, tabbar }
+const admin = StyleSheet.create({
+    container: {
+        padding: 10,
+        alignItems: "center"
+    },
+    addButton: {
+        width: "100%",
+        height: 50,
+        backgroundColor: colors.primary,
+        margin: 10,
+        borderRadius: 10,
+        alignItems: "center",
+        justifyContent: "center"
+    }
+})
+
+export { colors, theme, text, nav, tabbar, admin }
