@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { SearchInput, ProductCard } from '../../../components'
-import { getProducts } from "../../../services"
+import { deleteProduct, getProducts } from "../../../services"
 import { colors, admin, text } from '../../../styles';
 
 interface ProductProps  {
@@ -14,6 +14,13 @@ const Products:React.FC<ProductProps> = (props) => {
     const [loading, setLoading] = useState(false);
 
     const { setScreen } = props;
+
+    async function handleDelete(id: number) {
+        setLoading(true);
+        const rest = await deleteProduct(id);
+        fillProducts();
+        setLoading(false);
+    }
 
     async function fillProducts() {
         setLoading(true);
@@ -52,7 +59,7 @@ const Products:React.FC<ProductProps> = (props) => {
             { loading ? (
                 <ActivityIndicator size="large" color={colors.darkGray} />
             ) : (
-                data.map((product) => <ProductCard {...product} key={product.id} role="admin"/>)
+                data.map((product) => <ProductCard {...product} key={product.id} role="admin" handleDelete={handleDelete}/>)
             )}
         </ScrollView>
     );
