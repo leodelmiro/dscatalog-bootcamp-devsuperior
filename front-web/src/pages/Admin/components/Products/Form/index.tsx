@@ -109,6 +109,7 @@ const Form = () => {
                                 placeholder="Categorias"
                                 classNamePrefix="categories-select"
                                 inputId="categories"
+                                defaultValue=""
                                 isMulti 
                             />
 
