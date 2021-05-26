@@ -32,3 +32,9 @@
         padding: 10px 10px 30px 10px;
     }
 }
+
+@media(max-width: 576px) {
+    .product-card {
+        width: 80vw;
+    }
+}
